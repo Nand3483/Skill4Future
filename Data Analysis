@@ -1,0 +1,486 @@
+!pip install numpy
+
+import numpy as np
+
+import numpy as np
+
+
+ls=[1, 2, 3, 4,78,89,90,"6"]
+arr = np.array(ls)
+
+print(type(arr))
+
+
+import numpy as np
+
+arr = np.array((1, 2, 3, 4, 5))
+
+print(type(arr))
+print(arr)
+
+arr = np.array(42)
+
+print(arr)
+
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr)
+
+
+import numpy as np
+
+arr = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+
+print(arr)
+
+
+import numpy as np
+
+a = np.array(42)
+b = np.array([1, 2, 3, 4, 5])
+c = np.array([[1, 2, 3], [4, 5, 6]])
+d = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+
+print(a.ndim)
+print(b.ndim)
+print(c.ndim)
+print(d.ndim)
+
+
+import numpy as np 
+a = np.array([[8,7,3,4,5],[18,56,3,4,5]]) 
+np.save('outfile1',a)
+
+
+import numpy as np 
+b = np.load('outfile1.npy') 
+print(b) 
+
+import numpy as np 
+
+a = np.array([1,2,3,4,5]) 
+np.savetxt('out.txt',a) 
+b = np.loadtxt('out.txt') 
+print(b) 
+
+
+
+import numpy as np
+arr=np.arange(1,10,2) 
+print("Elements of array: ",arr)
+print(arr[3])
+arr1=arr[np.array([4,0,2,-1,-2])]
+print("Indexed Elements of array arr: ",arr1)
+
+import numpy as np 
+arr1=np.arange(80)
+print("Array arr11:",arr1)
+print("Element at index 0 of arri is: ", arr1[20])
+print("Element at index 1 of arr1 is: ", arr1[13])
+
+
+import numpy as np
+arr=np.arange(12)
+
+arr1=arr.reshape(6,2)
+print("Array arr1:\n",arr1)
+print("Element at eth row and eth column of arr1 is:",arr1[1,0]) 
+print("Element at 1st row and 2nd column of arr1 is:", arr1[0,1])
+
+import numpy as np 
+arr=np.arange(12) 
+arr1=arr.reshape(2,2,3) 
+print("Array arr1:\n", arr1) 
+print("Element:", arr1[1,0,1])
+
+
+###slicing
+
+import numpy as np 
+arr = np.arange(6) 
+print("array arr:",arr)
+print("sliced element of array: ", arr[1:5])
+
+
+import numpy as np
+arr=np.arange(12)
+arr1=arr.reshape(2,2,3)
+print("Array arr1: \n",arr1)
+print("\n")
+print("elements of 1st row and 1st column upto last column \n", arr1[0:2,0:2,1:3])
+
+
+import numpy as np 
+a = np.array([[0.0,0.0,0.0],[10.0,10.0,10.0],[20.0,20.0,20.0],[30.0,30.0,30.0]]) 
+b = np.array([1.0,2.0,3.0])  
+   
+print('First array:') 
+print(a) 
+print('\n')  
+   
+print('Second array:') 
+print(b) 
+print('\n')  
+   
+print('First Array + Second Array' )
+print( a + b)
+
+
+#Python program to demonstrate
+# Structured array
+import numpy as np
+a = np.array([('Sana', 2, 21.0), ('Mansi', 7, 29.0)], 
+             dtype=[('name', (np. str_, 10)), ('age', np.int32), ('weight', np.float64)])
+print((a))
+
+
+
+# Create a 2 D Array
+import numpy as np
+arravali = np.array(np.random.randint(10,45,(8,2)))
+print(f"The defined array is \n{arravali}")
+print(f" \n The shape of the array is {arravali.shape}")
+
+
+# Storing the transpose in another matrix object
+nilgiri =np.transpose(arravali)
+print(f" The transpose of the array is \n{nilgiri}")
+print(f" \n The shape of the array is {nilgiri.shape}")
+
+
+# 3D Array
+random_3d_array = np.array(np.random.randint(10,45,(3,2,4)))
+print(f"The defined array is \n{random_3d_array}")
+print(f" \n The shape of the array is {random_3d_array.shape}")
+
+
+# Storing the transpose of the created 3d array
+transposed_3d_array =np.transpose(random_3d_array)
+print(f" The transpose of the array is \n{transposed_3d_array}")
+print(f" \n The shape of the array is {transposed_3d_array.shape}")
+
+
+# Intialize a 3D array
+random_3D_cohort = np.array(np.random.randint(10,45,(2,4,6)))
+print(f"The defined array is \n{random_3D_cohort}")
+print(f" \n The shape of the array is {random_3D_cohort.shape}")
+
+
+# Resize the created 3D array
+new_shape = (4,8,6)
+resized_random_3D_cohort = np.resize(random_3D_cohort,new_shape)
+print(f"The resized array is \n{resized_random_3D_cohort}")
+print(f" \n The shape of the array is {resized_random_3D_cohort.shape}")
+
+
+# Intialize a 3D array
+random_3D_cohort = np.array(np.random.randint(10,45,(2,4,6)))
+print(f"The defined array is \n{random_3D_cohort}")
+print(f" \n The shape of the array is {random_3D_cohort.shape}")
+
+
+# Flatten the 3D array
+random_3D_cohort.flatten()
+
+
+# Flattens the array in row-major order with 'C'
+random_3D_cohort.flatten(order='F')
+
+
+a = np.random.randint(10,20,(2,3,4))    # Axis 0 - 2 ; Axis 1 - 3 ; Axis 2 - 4
+print(a)
+print(a.shape)
+
+
+#Insert along axis =0
+np.insert(a,1,100,axis=0)
+# Insert along axis = 1
+np.insert(a,0,50,axis=1)
+
+
+
+ # Importing data from the skimage library. Don't worry much about it
+ from skimage import data
+ camera = data.camera()
+
+# Camera is 2-D array object
+camera.shape
+
+
+# You can plot the camera object and see the image
+import matplotlib.pyplot as plt
+plt.imshow(camera)
+
+
+##Pandas
+
+
+import pandas as pd
+import numpy as np
+
+# Creating empty series. 
+ser = pd.Series()
+print(ser)
+# simple array
+data = np.array(['g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data) 
+print(ser)
+
+
+import pandas as pd
+# a simple list
+list = ['g', 'e', 'e', 'k', 's']
+# create series form a list 
+ser = pd.Series(list) 
+print(ser)
+
+
+import numpy as np
+lst = ['Geeks', 'For', 'Geeks', 'is', 'portal', 'for', 'Geeks']
+# Calling DataFrame constructor on list 
+df = pd.DataFrame(lst)
+print(df)
+
+
+# Python code demonstrate creating
+# DataFrame from dict narray / lists #By default addresses.
+import pandas as pd
+# intialise data of lists.
+data = { 'Name': ['Tom', 'nick', 'krish', 'jack'], 
+        'Age': [20, 21, 19, 18]}
+# Create DataFrame
+df = pd.DataFrame(data)
+# Print the output.
+print(df)
+
+
+import pandas as pd
+# Create dataframe
+info = pd.DataFrame({"P":[4, 7, 1, 8, 9], 
+                     "Q":[6, 8, 10, 15, 11], 
+                     "R":[17, 13, 12, 16,20], 
+                     "S":[15, 19, 7, 21, 9]}, 
+                    index =["Parker", "William", "Smith", "Terry", "Phill"])
+#Print dataframe
+info
+
+
+# reindexing with new index values 
+info.reindex(["A", "B", "C", "D", "E"])
+
+# filling the missing values by 100 
+info.reindex (["A", "B", "C", "D", "E"], fill_value =100)
+
+
+import pandas as pd
+import numpy as np
+unsorted_df = pd.DataFrame(np.random.randn (10,2), index= [1,4,6,2,3,5,9,8,8,7], columns = ['co12', 'col1'])
+sorted_df = unsorted_df.sort_index() 
+print (sorted_df)
+
+import pandas as pd
+import numpy as np
+unsorted_df = pd.DataFrame({'col1': [2,1,1,1], 'col2': [1,3,2,4]}) 
+sorted_df = unsorted_df.sort_values (by='col2')
+print (sorted_df)
+
+
+import pandas as pd
+import numpy as np
+s = pd.Series(['Tom', 'William Rick', 'John', 'Alber@t', np.nan, '1234', 'SteveSmith'])
+print (s. str.lower())
+
+
+import pandas as pd
+# Dataset
+data = { 'Maths': [90, 85, 98, 80, 55, 78],
+'Science': [92, 87, 59, 64, 87, 96],
+'English': [95, 94, 84, 75, 67, 65]
+}
+#DataFrame
+df = pd.DataFrame(data)
+# Display the DataFrame 
+print("DataFrame = \n",df)
+# Display the Maximum of Marks in each column 
+print("\nMaximum Marks = \n", df.max())
+
+
+# importing pandas package
+import pandas as pd
+
+# making data frame from csv file
+data = pd.read_csv("Plant_1_Generation_Data.csv")
+data.head()
+
+
+
+#####solar power generation analysis
+
+
+Using the provided solar plant dataset (with features such as AMBIENT_TEMPERATURE.MODULE_TEMPERATURE, IRRADIATION, AC_POWER, DC_POWER and DAILY_YEILD and TOTAL_YEI Etc), develop a forecasting model to predict future solar power output. The goal is to use historical weather and production data to estimate how much electricity the plant will generate for the particular Temprature and Irradiation.
+
+
+import numpy as np # To perform numerical operations
+import pandas as pd # To do data manipulation and analysis
+import matplotlib.pyplot as plt # For data visualization
+import seaborn as sns # For advanced Data visualizations
+from datetime import datetime 
+
+
+#Loading the plant 1 generation and Weather Sensor Data
+generation_data = pd.read_csv('Plant_1_Generation_Data.csv')
+weather_data = pd.read_csv('Plant_1_Weather_Sensor_Data.csv')
+
+
+generation_data.head() # viewing the first 5 rows of the Geneation dataset
+generation_data.info()
+generation_data.describe()
+generation_data.head() # viewing the first 5 rows of the Geneation dataset
+generation_data.info()
+generation_data.describe()
+
+
+# before merging the datasets we ne to convert date time format for proper time alignement
+
+generation_data['DATE_TIME'] = pd.to_datetime(generation_data['DATE_TIME'], dayfirst=True) # Parsing the date string in the format of Day/month/year
+weather_data['DATE_TIME'] = pd.to_datetime(weather_data['DATE_TIME'])
+weather_data.info()
+#generation_data.head()
+
+
+# Aggregating Generation Data
+generation_agg = generation_data.groupby('DATE_TIME').agg({
+    'DC_POWER':'sum', #calculating the sum of DC_Power
+    'AC_POWER':'sum', #calculating the sum of AC_POWER
+    'DAILY_YIELD' : 'mean', #calculating the average of DAILY_YEILD
+    'TOTAL_YIELD' : 'mean' #calculating the average of TOTAL_YIELD
+}).reset_index() # Used to control and manage the structure of a Dataframe's Index
+
+
+generation_agg.describe()
+#generation_agg.info()
+
+
+# aggregating Weather Sensor Data
+weather_agg = weather_data.groupby('DATE_TIME').agg({
+    'AMBIENT_TEMPERATURE' : 'mean', #calculating average AMBIENT_TEMPERATURE
+    'MODULE_TEMPERATURE' : 'mean', #calculating average MODULE_TEMPERATURE
+    'IRRADIATION' : 'mean' #calculating average IRRADIATION
+}).reset_index()
+
+
+Final_Data = pd.merge(generation_agg,weather_agg,on='DATE_TIME',how='inner') #how carries other values like outer, left and right
+
+# Savind the Merged Dataset
+Final_Data.to_csv('Plant1_Merged_Dataset.csv',index=False)
+
+# exploring the statistical information of a dataset
+Final_Data.describe()
+
+##uni
+# exploring null values
+Final_Data.isnull().sum()
+plt.hist(Final_Data["TOTAL_YIELD"])
+plt.show()
+daytime_data = Final_Data[Final_Data['IRRADIATION']>0] # filtering only the day time data by setting Irridation > 0
+
+numeric_columns = daytime_data.select_dtypes(include=['float64', 'int64']).columns # selecting only numeric columns from the dataframe
+
+sns.set(style="whitegrid")
+
+plt.figure(figsize=(15, 12))
+for i, col in enumerate(numeric_columns):
+    plt.subplot(3, 3, i + 1)
+    sns.histplot(daytime_data[col], kde=True, bins=50, color='green')
+    plt.title(f'Distribution of {col} (Daytime Only)')
+    plt.xlabel(col)
+    plt.ylabel("Frequency")
+
+plt.tight_layout()
+plt.show()
+
+
+A short summary From the above Feature Distribution
+DC_POWER & AC_POWER : Both show right-skewed distributions, indicating most readings are at lower power levels with fewer high-output instances.
+DAILY_YEILD : Right-skewed distribution suggests many days with lower energy production, potentially due to shorter daylight hours or cloudy weather conditions.
+TOTAL_YEILD : Displays a narrow range with a nearly uniform spread.
+AMBIENT_TEMPERATURE : Approximately normal distribution centered around 27–28°C.
+MODULE_TEMPERATURE : Bimodal distribution shows distinct heating patterns
+IRRADIATION : Strongly right-skewed, with a high frequency of low values.
+
+
+# Set DATE_TIME as the index
+Final_Data.set_index('DATE_TIME', inplace=True)
+Final_Data.sort_index(inplace=True)
+
+# Plot DC_POWER time series
+plt.figure(figsize=(12, 6))
+plt.plot(Final_Data.index, Final_Data['DC_POWER'], color="green", alpha=0.7, label="DC_POWER")
+
+plt.title("Time Series chart for DC_POWER")
+plt.xlabel("Date-Time")
+plt.ylabel("DC_POWER")
+plt.legend()
+plt.show()
+
+
+
+##box plot
+
+# Using these features to visualize the box plot to identify the outliers in a dataframe
+Features = [
+    'IRRADIATION',
+    'MODULE_TEMPERATURE',
+    'AMBIENT_TEMPERATURE',
+    'DAILY_YIELD',
+    'DC_POWER'
+]
+plt.figure(figsize=(8, 5))
+sns.boxplot(data=Final_Data[Features])
+plt.title("Boxplot to indentify Outliers")
+plt.xticks(rotation=45)
+plt.show()
+
+
+The above boxplot does indicates outliers specifically in the IRRADIATION and DC_POWER variables. Now we are going to apply the Interquartile Range (IQR) method to remove those outliers.
+
+# creating a copy to avoid the changes in original data
+Data_Clean = Final_Data.copy()
+
+
+#applying IQR method to remove the outliers
+for col in Features:
+    Q1 = Data_Clean[col].quantile(0.25)
+    Q3 = Data_Clean[col].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    Data_Clean = Data_Clean[(Data_Clean[col] >= lower_bound) & (Data_Clean[col] <= upper_bound)]
+
+
+#Visualizing the box plot after removing the outliers
+plt.figure(figsize=(12, 5))
+sns.boxplot(data=Data_Clean[Features])
+plt.title("After Outlier Removal")
+plt.xticks(rotation=45)
+plt.show()
+
+
+This updated box plot shows that most of the variables IRRADIATION, MODULE_TEMPERATURE, AMBIENT_TEMPERATURE, and DAILY_YIELD no longer have visible outliers. However AC_POWER still seems to have outliers, as indicated by data points extending beyond the whiskers. As we already applied IQR method to remove maximum of outliers from various features. Let's apply a time series chart for DC_POWER variable to check the data trends. This may help us to undertand whether these outliers are natural high values depending on the context of our dataset.
+
+
+##multi
+correlation_matrix = Final_Data.corr(numeric_only = True) # calculating the pairwise correlation b/w all numerical columns
+correlation_matrix
+
+
+plt.figure(figsize=(10, 6)) # sets the figure size as 10 inches width and 6 inches tall
+sns.heatmap(correlation_matrix, annot=True, cmap="viridis", fmt=".2f", linewidths=0.5) 
+plt.title("Correlation Heatmap - Final  Data")
+plt.tight_layout() # used to prevent the overlapping in the figure area
+plt.show() # used to visualize the figure
+
+
+
+From the above correlation heatmap we can clearly understand that the high correlations near 1+ shows that irradiation is the dominant factor
+driving power production and module temperature. The Moderate positive correlations around 0.5 to 0.8 shows more energy produced on sunny days based on the  AMBIENT_TEMPERATURE with DC_POWER / AC_POWER and DAILY_YIELD. The weak (0) or negative (-) values shows no correlation and it's not statistically meaningful.
