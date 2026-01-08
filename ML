@@ -1,0 +1,221 @@
+from sklearn.preprocessing import StandardScaler # for feature scaling
+from sklearn.model_selection import train_test_split # For splitting dataset into training and testing set
+from sklearn.linear_model import LinearRegression # For Model Selection
+from sklearn.ensemble import RandomForestRegressor # Model Selection for Random Forest
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score # To Evaluate Model's Performance
+from datetime import datetime  # To handle time based features 
+import joblib # For saving and Loading the Trained Model
+
+
+
+features_to_scale = [
+    'IRRADIATION',
+    'MODULE_TEMPERATURE',
+    'AMBIENT_TEMPERATURE',
+    'DAILY_YIELD',
+    'DC_POWER',
+    'AC_POWER' 
+]
+scaler = StandardScaler()
+Final_Data_standardized = Final_Data.copy()
+Final_Data_standardized[features_to_scale] = scaler.fit_transform(Final_Data[features_to_scale])
+
+print(Final_Data_standardized.head())
+
+
+features = ['IRRADIATION', 'MODULE_TEMPERATURE', 'AMBIENT_TEMPERATURE'] # Input features or Independant Features
+target = 'DC_POWER' # Target Varibale or Dependent Variable
+
+X = Final_Data_standardized[features]
+y = Final_Data_standardized[target]
+
+
+###split data
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=40)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+
+# Making predictions with the test data
+y_pred = model.predict(X_test)
+y_pred
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print("MSE:", mse)
+print("R² Score:", r2)
+
+plt.figure(figsize=(10, 5))
+plt.plot(y_test.values, label='Actual')
+plt.plot(y_pred, label='Predicted')
+plt.title("Actual vs Predicted DC_POWER")
+plt.legend()
+plt.show()
+
+joblib.dump(model, 'solar_Power_eneration_model.pkl')
+
+
+cd  Desktop
+cd  solar..folder name
+streamlit run app.py
+
+
+##logistic regression
+
+import pandas as pd
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Define number of samples
+num_samples = 100
+
+# Generate synthetic data
+carbon_emissions = np.random.uniform(50, 400, num_samples)  # Emissions in hypothetical units
+energy_output = np.random.uniform(100, 1000, num_samples)   # Energy output in hypothetical units
+renewability_index = np.random.uniform(0, 1, num_samples)   # Index from 0 (non-renewable) to 1 (fully renewable)
+cost_efficiency = np.random.uniform(0.5, 5, num_samples)    # Cost efficiency score
+
+# Generating a binary target variable based on a condition
+# This is just an example: high renewability and low emissions favor sustainability
+sustainability = [
+    1 if (emission < 200 and renewability > 0.5 and cost < 3) else 0
+    for emission, renewability, cost in zip(carbon_emissions, renewability_index, cost_efficiency)
+]
+
+# Create DataFrame
+data = pd.DataFrame({
+    'carbon_emissions': carbon_emissions,
+    'energy_output': energy_output,
+    'renewability_index': renewability_index,
+    'cost_efficiency': cost_efficiency,
+    'sustainability': sustainability
+})
+
+# Display the first few rows
+print(data.head())
+
+# Optionally, save to CSV for later use
+data.to_csv('green_tech_data.csv', index=False)
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+# Load the dataset
+data = pd.read_csv('green_tech_data.csv')
+# Inspect for missing values and general structure
+print(data.head())
+print(data.isnull().sum())
+# Handle missing values if necessary
+data.fillna(data.mean(), inplace=True)
+
+
+# Example feature selection
+X = data[['carbon_emissions', 'energy_output', 'renewability_index', 'cost_efficiency']]
+y = data['sustainability']  # Target variable
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+# Accuracy Score
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+
+# Confusion Matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', 
+            xticklabels=['Not Sustainable', 'Sustainable'], 
+            yticklabels=['Not Sustainable', 'Sustainable'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix')
+plt.show()
+
+# Classification Report
+print(classification_report(y_test, y_pred, target_names=['Not Sustainable', 'Sustainable']))
+
+
+# Feature importance
+coefficients = pd.DataFrame(model.coef_.T, index=X.columns, columns=['Coefficient'])
+print(coefficients)
+
+import joblib
+# Save the model to a file
+joblib.dump(model, 'lrmodel_sustainable.pkl')
+
+###decision tree
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.tree import plot_tree
+
+# Load the dataset
+data = pd.read_csv('Renewable_Energy_Adoption.csv')
+data.head()
+# data.shape
+
+
+X = data[['carbon_emissions', 'energy_output', 'renewability_index', 'cost_efficiency']]
+y = data['adoption']  # Target variable
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize the model with a specified max depth to prevent overfitting
+model = DecisionTreeClassifier(max_depth=3,criterion='entropy' ,random_state=42)
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+y_pred
+
+# Accuracy Score
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+
+# Confusion Matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', 
+            xticklabels=['Non-Adoption', 'Adoption'], 
+            yticklabels=['Non-Adoption', 'Adoption'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix')
+plt.show()
+
+# Classification Report
+print(classification_report(y_test, y_pred, target_names=['Non-Adoption', 'Adoption']))
+
+
+plt.figure(figsize=(12, 8))
+plot_tree(model, feature_names=X.columns, class_names=['Non-Adoption', 'Adoption'], filled=True, rounded=True)
+plt.savefig('dt1.png')
+plt.show()
+
+
+import joblib
+# Save the model to a file
+joblib.dump(model, 'Renewable_Energy_Adoption_model.pkl')
+
+
+
+ 
