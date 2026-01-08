@@ -1,0 +1,494 @@
+myvar = "Hello"
+my_var = "Hello"
+_my_var = "Hello"
+myvar = 10.09
+
+
+#This is integer datatype
+a = 10.34
+b=19
+print(a)
+print(type(a))
+print(type(b))
+
+
+# addition, sub, mul, div: +, -, *, / etc
+x = 5
+y = 8
+
+print(x//y)
+
+
+x = 5
+x += 3
+
+print(x)
+
+
+x = 5
+y = 5
+
+print(x == y)
+
+# returns False because 5 is not equal to 3
+
+
+#use input keyword to take input from user
+
+#aks user to enter the value and store it in varialbe x
+
+x = int(input("Enter the value of x : "))
+
+#aks user to enter the value and store it in varialbe y
+
+y = int(input("Enter the value of y : "))
+# perform multiplication of x and y and store answer in variable Z
+
+z = x*y
+#Print answer
+
+print(z)
+
+
+###string
+
+statement = "      Python is a programming language      "
+
+statement.split(sep="a",maxsplit=3)
+
+statement.lower() #to convert text into lowercase
+
+statement.upper()#to convert text into uppercase
+
+statement.title()#to convert text into snakewriting
+
+statement.lstrip() #to remove the space from left side
+statement.rstrip() #to remove the space from right side
+
+
+string = "{} is the best {} {} in the world for data science".format('Python','Programming','Language')
+string
+
+
+name = 'Priyanka'
+course = 'skill for future 2.0'
+print(f"Hello, My name is {name} and I registered for {course}")
+
+
+str1 = "FACE"
+len(str1)
+
+str1[-2]
+
+
+str1[-4:-1]
+
+##list
+
+#create list
+
+lst1 = ["Atmiya", 22, "Bharat", 45.5, "marwadi", 99]
+print(lst1)
+
+print(type(lst1))
+
+
+fruits = ['apple', 'banana', 'cherry']
+fruits.append("orange")
+print(fruits)
+
+
+fruits = ['apple', 'banana', 'cherry']
+cars = ['Ford', 'BMW', 'Volvo']
+
+fruits.extend(cars)
+print(fruits)
+
+
+fruits = ['apple', 'banana', 'cherry']
+
+fruits.insert(1, "orange") # insert orange at index 1
+print(fruits)
+
+
+fruits = ['apple', 'banana', 'cherry']
+
+fruits.pop(0) # if no argument pass in pop by default it will remove last item and retun it.
+print(fruits)
+
+fruits = ['apple', 'banana', 'cherry']
+
+fruits.remove("banana")
+print(fruits)
+
+
+cars = ['Ford', 'BMW','Volvo',"mahindra","Tata"]
+
+cars.sort()  # The words will be arrange in aplphabetical order
+print(cars)
+
+
+#create tuples -
+
+tup1 = ("Atmiya", 22, "Bharat", 45.5, "Rajkot", 99)
+print(tup1)
+print(type(tup1))
+
+
+tup2=("python", 87)
+
+tup3 = tup1 + tup2
+print(tup3)
+
+
+#immutable 
+
+del tup3[3]    #del is keyword used for deleting the items.
+print(tup3)
+
+
+numbers = (1, 1, 7, 1, 7, 5, 4, 6, 8, 5)
+
+x = numbers.count(1)  # 5 is the element in tuple
+
+print(x)
+
+
+numbers = (1, 3, 7, 8, 7, 5, 4, 6, 8, 5)
+
+x = numbers.index(8) # 8 is the element in tuple
+
+print(x)
+
+
+cars = {
+  "brand": "Mahindra",
+  "model": "Thar",
+  "year": 2010
+}
+
+print(cars["model"]) #Accessing Items
+
+#print only key values
+print(cars.keys())      # To access all keys
+
+
+#print only values
+print(cars.values())   # To access all values
+
+
+cars.items()          # To access all keys,values
+
+cars.update({"year": 2012})
+cars
+
+
+cars["color"] = "black"  # To add key-value pair 
+print(cars)
+
+
+cars.pop("model")
+cars
+
+
+##set
+
+subjects1 = {'Physics', 'hindi', 'Chemistry', 'maths', 'hindi'}
+print(subjects1)
+print(type(subjects1))
+
+
+numbers = [1, 3, 7, 8, 7, 5, 4, 6, 8, 5]
+sum(numbers)
+
+
+dir(list)
+
+
+## decode aliens
+
+# Store the message in a variable
+encrypted_message = ("ajsuydtbe", "", "wunjbfusnjrgut", "uhbhr", "oirun", "lpef", "", "vhejsibr", "ydtse", "qlvuusrntuos", "ijwlbutybhlsoaxh")
+
+
+
+# Create your dictionary below with keys as position of the alphabet and the value of the key will be the alphabet itself
+alphabet_dict = {0:" ",1:'a', 2:'b', 3:'c', 4:'d', 5:'e', 6:'f', 7:'g', 8:'h',
+                 9:'i', 10:'j', 11:'k', 12:'l', 13:'m',14:'n', 15:'o', 16:'p',
+                 17:'q', 18:'r', 19:'s',20:'t', 21:'u', 22:'v', 23:'w', 24:'x', 25:'y', 26:'z'}
+
+
+# Print your dictionary to double check;  any small mistake in numbering can screw up the results
+print(alphabet_dict)
+
+# Extract keys and values and store it as lists
+keys_list = list(alphabet_dict.keys())
+print(keys_list)
+values_list = list(alphabet_dict.values())
+print(values_list)
+
+#find the index of given lphabet in values
+index_ = values_list.index('h')
+
+#use this index in list of keys to extract associated key with that value
+keys_list[index_]
+
+
+len(encrypted_message)
+
+# Follow the steps from your solution to problem 1
+
+# Create an empty list
+string_length_list  = []
+
+# Append the length of strings of your tuple one by one
+string_length_list.append(len(encrypted_message[0]))
+string_length_list.append(len(encrypted_message[1]))
+string_length_list.append(len(encrypted_message[2]))
+string_length_list.append(len(encrypted_message[3]))
+string_length_list.append(len(encrypted_message[4]))
+string_length_list.append(len(encrypted_message[5]))
+string_length_list.append(len(encrypted_message[6]))
+string_length_list.append(len(encrypted_message[7]))
+string_length_list.append(len(encrypted_message[8]))
+string_length_list.append(len(encrypted_message[9]))
+string_length_list.append(len(encrypted_message[10]))
+
+# Print the list of string lengths
+print(string_length_list)
+
+# Create a string to store the decrypyted message
+decrypted_message = ""
+
+# Concatenate the characters one by one to get your final decoded message
+decrypted_message += alphabet_dict[string_length_list[0]]
+decrypted_message += alphabet_dict[string_length_list[1]]
+decrypted_message += alphabet_dict[string_length_list[2]]
+decrypted_message += alphabet_dict[string_length_list[3]]
+decrypted_message += alphabet_dict[string_length_list[4]]
+decrypted_message += alphabet_dict[string_length_list[5]]
+decrypted_message += alphabet_dict[string_length_list[6]]
+decrypted_message += alphabet_dict[string_length_list[7]]
+decrypted_message += alphabet_dict[string_length_list[8]]
+decrypted_message += alphabet_dict[string_length_list[9]]
+decrypted_message += alphabet_dict[string_length_list[10]]
+
+# Print the message you have decrypted
+print(decrypted_message)
+
+
+##if
+
+number = -10
+
+# check if number is greater than 0
+if number > 0:
+    print('Number is positive.')
+
+print('The if statement is easy')
+
+##if-else
+number = -10
+
+if number > 0:
+    print('Positive number')
+
+else:
+    print('Negative number')
+
+print('This statement is always executed')
+
+
+
+number = int(input("Enter Number  " ))
+
+
+if number > 0:
+    
+    print("Positive number")
+
+elif number == 0:
+    print('Zero')
+else:
+    print('Negative number')
+
+print('This statement is always executed')
+
+
+lst=[i for i in "Python"]
+lst
+
+
+counter = 0
+
+while counter < 2:
+    print('Hello world')
+    counter = counter + 2
+
+
+n = 10
+
+# use pass inside if statement
+if n > 10:
+    pass
+
+
+#Python break Statement
+i = 1
+while i < 9:
+  print(i)
+  if i == 3:
+    break
+  i += 1
+
+
+#Python continue Statement
+i = 0
+while i < 10:
+  i += 1
+  if i == 3:
+    continue
+  print(i)
+
+
+
+##FUNCTION
+def calculate_carbon_footprint(energy_consumption, emission_factor):
+    """
+    This function calculates the carbon footprint based on energy consumption 
+    (in kilowatt-hours) and the emission factor (in kg CO2 per kWh).
+    """
+    return energy_consumption * emission_factor
+
+
+
+calculate_carbon_footprint(69,0.72)
+
+# Example usage:
+energy_consumption = 1000  # in kWh
+emission_factor = 0.475      # kg CO2 per kWh
+
+carbon_footprint = calculate_carbon_footprint(energy_consumption, emission_factor)
+print(f"Carbon Footprint: {carbon_footprint} kg CO2")
+
+#This will calculate and print the carbon footprint for the given energy consumption and emission factor.
+
+
+
+# List of cities with their carbon footprints in tons CO2 per month
+cities = [
+    {"name": "Surat", "carbon_footprint": 300},
+    {"name": "bardoli", "carbon_footprint": 350},
+    {"name": "Ahemdabad", "carbon_footprint": 600},
+    {"name": "vadodara", "carbon_footprint": 200},
+]
+
+
+
+# Lambda function to filter cities below the threshold (400 ton CO2)
+sustainability_threshold = 400
+sustainable_cities = list(filter(lambda city: city["carbon_footprint"] < sustainability_threshold, cities))
+
+# Printing the filtered list of sustainable cities
+print(sustainable_cities)
+# print("Sustainable Cities:")
+
+
+
+##CLASS
+
+# Define the EnergySystem class
+class EnergySystem:
+    def __init__(self, building_name, energy_consumption, emission_factor):
+        # Initialize attributes
+        self.building_name = building_name
+        self.energy_consumption = energy_consumption  # in kWh
+        self.emission_factor = emission_factor  # kg CO2 per kWh
+
+# Example usage:
+building = EnergySystem("Building A", 5000, 0.45)
+print(f"{building.building_name}: {building.energy_consumption} kWh, {building.emission_factor} kg CO2/kWh")
+
+
+
+class EnergySystem:
+    def __init__(self, building_name, energy_consumption, emission_factor):
+        self.building_name = building_name
+        self.energy_consumption = energy_consumption  # in kWh
+        self.emission_factor = emission_factor  # kg CO2 per kWh
+    
+    # Method to calculate carbon footprint
+    def calculate_carbon_footprint(self):
+        return self.energy_consumption * self.emission_factor
+
+    # Method to calculate energy savings (Assume saving 10% for now)
+    def calculate_energy_savings(self):
+        return self.energy_consumption * 0.10  # 10% savings
+
+# Example usage:
+building = EnergySystem("Building A", 5000, 0.45)
+carbon_footprint = building.calculate_carbon_footprint()
+energy_savings = building.calculate_energy_savings()
+
+print(f"Carbon Footprint: {carbon_footprint} kg CO2")
+print(f"Energy Savings: {energy_savings} kWh")
+
+
+
+# Subclass SolarEnergySystem inheriting from EnergySystem
+class SolarEnergySystem(EnergySystem):
+    def __init__(self, building_name, energy_consumption, emission_factor, solar_production):
+        # Inherit attributes from the parent class
+        super().__init__(building_name, energy_consumption, emission_factor)
+        self.solar_production = solar_production  # energy produced by solar panels in kWh
+    
+    # Method to calculate net energy consumption (energy used - solar energy produced)
+    def net_energy_consumption(self):
+        return self.energy_consumption - self.solar_production
+
+# Example usage:
+solar_building = SolarEnergySystem("Solar Building", 5000, 0.45, 1500)
+net_consumption = solar_building.net_energy_consumption()
+
+print(f"Net Energy Consumption: {net_consumption} kWh")
+
+
+class EnergySystem:
+    def __init__(self, building_name, energy_consumption, emission_factor):
+        self.building_name = building_name
+        self._energy_consumption = energy_consumption  # Protected attribute
+        self._emission_factor = emission_factor  # Protected attribute
+
+    # Method to access energy consumption safely
+    def get_energy_consumption(self):
+        return self._energy_consumption
+
+    # Method to calculate carbon footprint
+    def calculate_carbon_footprint(self):
+        return self._energy_consumption * self._emission_factor
+
+# Example usage:
+building = EnergySystem("Building A", 5000, 0.45)
+print(f"Energy Consumption (accessed via method): {building.get_energy_consumption()} kWh")
+print(f"Energy Consumption (accessed via method): {building.calculate_carbon_footprint()} kWh")
+
+
+
+# Subclass SolarEnergySystem overriding the carbon footprint method
+class SolarEnergySystem(EnergySystem):
+    def __init__(self, building_name, energy_consumption, emission_factor, solar_production):
+        # Call the parent class constructor to initialize inherited attributes
+        super().__init__(building_name, energy_consumption, emission_factor)
+        self.solar_production = solar_production  # new attribute for solar energy production
+    
+    # Overriding the carbon footprint method to account for solar production
+    def calculate_carbon_footprint(self):
+        # Access energy consumption from the parent class (inherited attribute)
+        net_consumption = self._energy_consumption - self.solar_production
+        return net_consumption * self._emission_factor
+
+# Example usage:
+solar_building = SolarEnergySystem("Solar Building", 5000, 0.45, 1500)
+carbon_footprint = solar_building.calculate_carbon_footprint()
+
+print(f"Adjusted Carbon Footprint (after solar production): {carbon_footprint:.2f} kg CO2")
